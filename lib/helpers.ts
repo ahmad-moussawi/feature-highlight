@@ -50,8 +50,11 @@ export function getElement(selector: string | HTMLElement) {
 	return selector;
 }
 
-export function getOptions(options: Partial<HighlightArgs> = {}): HighlightArgs {
+export function getOptions(
+	options: Partial<HighlightArgs> = {},
+): HighlightArgs {
 	const defaultOptions = {
+		radiusPadding: 0,
 		borderColor: "#fff",
 		color: "#388E3C",
 		borderWidth: 2,

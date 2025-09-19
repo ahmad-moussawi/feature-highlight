@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Feature Highlight</title>
     <style>
       body {
         font-family: sans-serif;
@@ -145,6 +145,11 @@
     <div class="container">
       <div class="main-content">
         <h2>Main Heading</h2>
+        <img
+          class="image-1"
+          src="https://picsum.photos/200/100"
+          alt="Placeholder Image"
+        />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -205,17 +210,17 @@
         transition: 300ms linear all;
       }
       
-      #hopSvg circle {
+      #hopSvg.bounce circle {
         /* transition: 300ms linear all; */
         animation: bounce 800ms alternate infinite;
       }
 
       @keyframes bounce {
         0% {
-          r: 30;
+          r: 70;
         }
         100% {
-          r: 35;
+          r: 75;
         }
       }
     </style>
@@ -224,12 +229,46 @@
       window.highlight = highlight;
       window.removeHighlight = removeHighlight;
     
-      highlight("#home-nav", {
-        color: 'violet', 
+      highlight("nav>a", {
+        radius: 70,
+        color: 'green', 
         borderColor: 'white',
         borderWidth: 8,       
         opacity: 0.9,
+        cssClass: 'bounce',
       });
+
+      setTimeout(() => {
+        highlight("nav>a:nth-child(2)", {
+          radius: 70,
+          color: 'violet', 
+          borderColor: 'white',
+          borderWidth: 8,       
+          opacity: 0.9,
+          cssClass: 'bounce',
+        });
+      }, 1000);
+
+      setTimeout(() => {
+        highlight(".image-1", {
+          color: 'yellow', 
+          borderColor: 'orange',
+          borderWidth: 8,       
+          opacity: 0.9,
+          radiusPadding: 30,
+        });
+      }, 2000);
+
+      setTimeout(() => {
+        highlight("nav>a", {
+          radius: 70,
+          color: 'green', 
+          borderColor: 'white',
+          borderWidth: 8,       
+          opacity: 0.9,
+          cssClass: 'bounce',
+        });
+      }, 3000);
     
     </script>
   </body>

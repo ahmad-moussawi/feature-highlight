@@ -22,7 +22,7 @@ function draw(el: HTMLElement, options: HighlightArgs) {
 			window.innerHeight * 0.8,
 			window.innerWidth * 0.8,
 		);
-		computedRadius = Math.ceil(Math.sqrt((side / 2) ** 2));
+		computedRadius = options.radiusPadding + Math.ceil(Math.sqrt((side / 2) ** 2));
 	}
 
 	if (!svgEl) {
@@ -43,6 +43,14 @@ function draw(el: HTMLElement, options: HighlightArgs) {
     <rect id="hopBg" width="100%" height="100%" fill="${options.color}" opacity="${options.opacity}" mask="url(#hopMask)" />
     <circle id="hopBorder" cx="${offest.left}" cy="${offest.top}" r="${computedRadius}" fill="transparent" stroke="${options.borderColor}" stroke-width="${options.borderWidth}"/>`;
 		document.body.appendChild(svgEl);
+	}
+
+	for (const entry of svgEl.classList) {
+		svgEl.classList.remove(entry);
+	}
+
+	if (options.cssClass) {
+		svgEl.classList.add(...options.cssClass.split(/\s+/g));
 	}
 
 	const circles = svgEl.querySelectorAll<SVGCircleElement>("circle");

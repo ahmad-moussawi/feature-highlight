@@ -2,6 +2,10 @@
 
 Feature Highlight is a lightweight TypeScript library for visually highlighting elements on a web page, useful for onboarding, tutorials, or drawing user attention to features.
 
+<!-- <video width="100%" autoplay loop src="public/demo.mp4"></video> -->
+
+<img src="public/demo.webp" width="100%" alt="Demo" />
+
 ## Installation
 
 Install via npm:
@@ -61,10 +65,12 @@ You can make the transition smooth by adding the appropriate css transition rule
 - `elOrSelector`: string (CSS selector) or HTMLElement
 - `options`: Partial<HighlightArgs>
   - `radius`: number — Highlight circle radius (default: auto)
+  - `radiusPadding`: number — adjust the radius size, useful only when the `radius` is automatically calculated (`radius: undefined`)
   - `color`: string — Highlight color (default: #388E3C)
   - `borderWidth`: number — Border width (default: 2)
   - `borderColor`: string — Border color (default: #fff)
   - `opacity`: number — Highlight opacity (default: 0.8)
+  - `cssClass`: string — A css class set to the root svg element, useful for styling and animation
 
 ## License
 
