@@ -103,7 +103,7 @@
         bottom: 0;
         width: 100%;
       }
-      
+
       .wrapper {
         position: absolute;
         left: 0;
@@ -209,7 +209,7 @@
       #hopSvg circle {
         transition: 300ms linear all;
       }
-      
+
       #hopSvg.bounce circle {
         /* transition: 300ms linear all; */
         animation: bounce 800ms alternate infinite;
@@ -228,48 +228,49 @@
       import { highlight, removeHighlight } from "/lib/main.ts";
       window.highlight = highlight;
       window.removeHighlight = removeHighlight;
-    
-      highlight("nav>a", {
-        radius: 70,
-        color: 'green', 
-        borderColor: 'white',
-        borderWidth: 8,       
-        opacity: 0.9,
-        cssClass: 'bounce',
-      });
-
-      setTimeout(() => {
-        highlight("nav>a:nth-child(2)", {
-          radius: 70,
-          color: 'violet', 
-          borderColor: 'white',
-          borderWidth: 8,       
-          opacity: 0.9,
-          cssClass: 'bounce',
-        });
-      }, 1000);
-
-      setTimeout(() => {
-        highlight(".image-1", {
-          color: 'yellow', 
-          borderColor: 'orange',
-          borderWidth: 8,       
-          opacity: 0.9,
-          radiusPadding: 30,
-        });
-      }, 2000);
 
       setTimeout(() => {
         highlight("nav>a", {
           radius: 70,
-          color: 'green', 
-          borderColor: 'white',
-          borderWidth: 8,       
+          color: "#FFC107",
+          borderColor: "black",
+          borderWidth: 8,
           opacity: 0.9,
-          cssClass: 'bounce',
+          cssClass: "bounce",
+        });
+      }, 1000);
+
+      setTimeout(() => {
+        highlight("nav>a:nth-child(2)", {
+          radius: 70,
+          color: "violet",
+          borderColor: "#631072",
+          borderWidth: 8,
+          opacity: 0.9,
+          cssClass: "bounce",
+        });
+      }, 2000);
+
+      setTimeout(() => {
+        highlight(".image-1", {
+          color: "black",
+          borderColor: "#FFC107",
+          borderWidth: 8,
+          opacity: 0.8,
+          radiusPadding: 90,
         });
       }, 3000);
-    
+
+      setTimeout(() => {
+        highlight("nav>a", {
+          radius: 70,
+          color: "#4caf50",
+          borderColor: "#90ea29",
+          borderWidth: 8,
+          opacity: 0.9,
+          cssClass: "bounce",
+        });
+      }, 4000);
     </script>
   </body>
 </html>
