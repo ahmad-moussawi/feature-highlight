@@ -2,7 +2,7 @@
 
 Feature Highlight is a lightweight TypeScript library for visually highlighting elements on a web page, useful for onboarding, tutorials, or drawing user attention to features.
 
-<img src="public/demo.webp" width="100%" alt="Demo" />
+<img src="public/demo2.webp" width="100%" alt="Demo" />
 
 ## Installation
 
