@@ -6,10 +6,15 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   build: {
-    lib: {
-      entry: resolve(__dirname, "lib/main.js"),
-      name: "FeatureHighlight",
-      fileName: "feature-highlight",
+    assetsDir: "site",
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, "site/index.html"),
+      },
+      external: [],
+      output: {
+        globals: {},
+      },
     },
   },
 });

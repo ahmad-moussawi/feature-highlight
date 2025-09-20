@@ -1,7 +1,7 @@
 {
   "name": "feature-highlight",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.1.0",
   "type": "module",
   "homepage": "https://github.com/ahmad-moussawi/feature-highlight",
   "repository": {
@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:site": "tsc && vite build --config vite.config.site.js",
     "preview": "vite preview"
   },
   "files": [
