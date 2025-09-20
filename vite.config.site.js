@@ -11,10 +11,6 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "site/index.html"),
       },
-      external: [],
-      output: {
-        globals: {},
-      },
     },
   },
 });
