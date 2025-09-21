@@ -1,31 +1,41 @@
 # feature-highlight
 
-Feature Highlight is a lightweight TypeScript library for visually highlighting elements on a web page, perfect for onboarding, tutorials, or drawing user attention to features.
+A lightweight TypeScript library for visually highlighting elements on web pages. Perfect for onboarding, tutorials, and drawing attention to features.
+
+Checkout the [live demo](https://ahmad-moussawi.github.io/feature-highlight/)
 
 ## ✨ Features
 
-- ⚡ **No dependencies** — Works out of the box, no extra packages required
+- ⚡ **Zero dependencies** — Works out of the box
 - 📦 **Tiny footprint** — Less than 2KB gzipped
 - 📱 **Responsive** — Adapts to any screen size
-- 🎨 **Customizable** — Easily adjust color, radius, border, and opacity
-- 🚀 **Fast & efficient** — Minimal DOM manipulation for smooth performance
-- 🛠️ **TypeScript support** — Strongly typed API for safer development
+- 🎨 **Customizable** — Adjust color, radius, border, and opacity
+- 🚀 **Performant** — Minimal DOM manipulation
+- 🛠️ **TypeScript ready** — Fully typed API
 
-<img src="public/demo2.webp" width="100%" alt="Demo" />
-
-Install via npm:
+## Installation
 
 ```bash
 npm install feature-highlight
 ```
 
-## Usage
+or via script tag
 
-Import the main highlight function and use it to highlight any element by selector or reference:
+```html
+<script src="https://unpkg.com/feature-highlight"></script>
+<script>
+  const { highlight, removeHighlight, registerOnHighlight } = FeatureHighlight;
+</script>
+```
+
+## Quick Start
+
+Highlight elements using CSS selectors or element references:
 
 ```ts
 import { highlight, removeHighlight } from "feature-highlight";
 
+// Highlight an element
 highlight("#newFeatureButton", {
   color: "#388E3C",
   borderWidth: 3,
@@ -33,64 +43,92 @@ highlight("#newFeatureButton", {
   opacity: 0.7,
 });
 
-const removeButton = document.querySelector("#removeHighlight");
-removeButton.addEventListener("click", () => removeHighlight());
+// Remove highlight
+removeHighlight();
 ```
 
-### CSS variable
+## Advanced Usage
 
-the library automatically set the following CSS variables to the root SVG element `#fhRoot`
+### Overlay Text
 
+Add text overlays using the `registerOnHighlight` callback:
+
+```ts
+import { registerOnHighlight } from "feature-highlight";
+
+const overlay = document.createElement("div");
+overlay.className = "overlay";
+document.body.appendChild(overlay);
+
+registerOnHighlight((el: HTMLElement, offset: OffsetData) => {
+  overlay.innerHTML = `<h1>New side nav 🎉</h1>
+    <p>Quick access to navigation</p>`;
+});
 ```
---fh-radius // the radius of the highlight circle
---fh-left // left offset
---fh-top // top offset
---fh-right // right offset relative to the window width
---fh-bottom // bottom offset relative to the window height
+
+and add the following CSS styles
+
+```CSS
+  .overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: white;
+    width: 500px;
+    z-index: 999;
+  }
 ```
 
-### Smooth transitions
+### CSS Variables
 
-You can make the transition smooth by adding the appropriate css transition rules, as an example:
+The library sets CSS variables on the `#fhRoot` element:
+
+- `--fh-radius` — Highlight circle radius
+- `--fh-left`, `--fh-top` — Position offsets
+- `--fh-right`, `--fh-bottom` — Right/bottom offsets
+
+### Animations
+
+Add smooth transitions:
 
 ```css
 #fhRoot circle {
-  transition: 300ms linear all;
+  transition: 300ms ease all;
 }
 ```
 
-### Bouncing example
+Create bouncing effects:
 
-You can benefit from the CSS variable properties to make a bouncing effect to the highlight circle
-
-```
+```css
 #fhRoot circle {
-    animation: bounce 800ms alternate infinite;
+  animation: bounce 800ms alternate infinite;
 }
 
 @keyframes bounce {
-    0% {
-        r: var(--fh-radius);
-    }
-    100% {
-        r: calc(var(--fh-radius) + 10px);
-    }
+  0% {
+    r: var(--fh-radius);
+  }
+  100% {
+    r: calc(var(--fh-radius) + 10px);
+  }
 }
 ```
 
 ## API
 
-### highlight(elOrSelector, options)
+### `highlight(elOrSelector, options)`
 
-- `elOrSelector`: string (CSS selector) or HTMLElement
-- `options`: Partial<HighlightArgs>
-  - `radius`: number — Highlight circle radius (default: auto)
-  - `radiusPadding`: number — adjust the radius size, useful only when the `radius` is automatically calculated (`radius: undefined`)
-  - `color`: string — Highlight color (default: #388E3C)
+**Parameters:**
+
+- `elOrSelector`: CSS selector string or HTMLElement
+- `options`: Configuration object
+  - `radius`: number — Circle radius (auto-calculated if undefined)
+  - `radiusPadding`: number — Adjust auto-calculated radius
+  - `color`: string — Highlight color (default: "#388E3C")
   - `borderWidth`: number — Border width (default: 2)
-  - `borderColor`: string — Border color (default: #fff)
-  - `opacity`: number — Highlight opacity (default: 0.8)
-  - `cssClass`: string — A css class set to the root svg element, useful for styling and animation
+  - `borderColor`: string — Border color (default: "#fff")
+  - `opacity`: number — Opacity (default: 0.8)
+  - `cssClass`: string — CSS class for the root SVG element
 
 ## License
 

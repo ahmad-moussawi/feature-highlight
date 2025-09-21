@@ -317,6 +317,34 @@
         }
       }
     </style>
+    <style>
+      .overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: var(--color, #4f2d8d);
+        width: 500px;
+        z-index: 999;
+      }
+
+      #fhRoot circle {
+        transition: 200ms linear all;
+      }
+
+      #fhRoot.bounce circle {
+        animation: bounce 800ms alternate infinite;
+      }
+
+      @keyframes bounce {
+        0% {
+          r: var(--fh-radius);
+        }
+        100% {
+          r: calc(var(--fh-radius) + 10px);
+        }
+      }
+    </style>
+    <script type="module" src="./script.ts"></script>
   </head>
   <body>
     <aside class="sidebar">
@@ -499,34 +527,6 @@
           <a href="#" class="btn btn-secondary">Contact Support</a>
         </div>
       </div>
-    </div>
-    <!-- <script src="https://unpkg.com/feature-highlight"></script> -->
-    <style>
-      .overlay {
-        position: absolute;
-        left: 0;
-        top: 0;
-        color: var(--color, #4f2d8d);
-        width: 500px;
-      }
-
-      #fhRoot circle {
-        transition: 200ms linear all;
-      }
-
-      #fhRoot.bounce circle {
-        animation: bounce 800ms alternate infinite;
-      }
-
-      @keyframes bounce {
-        0% {
-          r: var(--fh-radius);
-        }
-        100% {
-          r: calc(var(--fh-radius) + 10px);
-        }
-      }
-    </style>
-    <script type="module" src="./script.ts"></script>
+    </div>    
   </body>
 </html>

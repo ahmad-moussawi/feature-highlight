@@ -77,16 +77,7 @@ export function findPlace(
 	return { left: 0, top: 0 };
 }
 
-highlight("nav", { opacity: 0.8, color: "#50e3c2" });
-
 const overlay = document.createElement("div");
-overlay.className = "overlay";
-overlay.innerHTML = [
-	"<h1>New side nav 🎉</h1>",
-	"<p>Checkout the new side nav for quicker access</p>",
-].join("");
-
-document.body.append(overlay);
 
 registerOnHighlight((el, offset) => {
 	const place = findPlace(
@@ -122,10 +113,7 @@ const queue = [
 		});
 
 		overlay.style.setProperty("--color", "#000");
-		overlay.innerHTML = [
-			"<h1>User profile</h1>",
-			"<p>New user profile</p>",
-		].join("");
+		overlay.innerHTML = "<h1>User profile</h1><p>New user profile</p>";
 	},
 
 	() => {
@@ -137,10 +125,7 @@ const queue = [
 			cssClass: "bounce",
 		});
 
-		overlay.innerHTML = [
-			"<h1>New charts 🎉</h1>",
-			"<p>Charts are here</p>",
-		].join("");
+		overlay.innerHTML = "<h1>New charts 🎉</h1><p>Charts are here</p>";
 	},
 
 	() => {
@@ -153,10 +138,7 @@ const queue = [
 		});
 
 		overlay.style.setProperty("--color", "#fff");
-		overlay.innerHTML = [
-			"<h1>Go home</h1>",
-			"<p>Click here to go back</p>",
-		].join("");
+		overlay.innerHTML = "<h1>Go home</h1><p>Click here to go back</p>";
 	},
 
 	() => {
@@ -168,21 +150,22 @@ const queue = [
 			cssClass: "bounce",
 		});
 
-		overlay.style.setProperty("--color", "#3f51b5");
-		overlay.innerHTML = [
-			"<h1>Advanced Stats</h1>",
-			"<p>Here are the stats</p>",
-		].join("");
+		overlay.style.setProperty("--color", "white");
+		overlay.innerHTML = "<h1>Advanced Stats</h1><p>Here are the stats</p>";
 	},
 ];
 
-// for (let i = 0; i < queue.length; i++) {
-//   setTimeout(() => {
-//     queue[i]();
-//   }, i * 2000);
-// }
-let i = 0;
+overlay.className = "overlay";
+overlay.innerHTML = `<h1>New side nav 🎉</h1>
+	<p>Checkout the new side nav for quicker access</p>
+`;
 
-document.querySelector("#fhRoot")?.addEventListener("click", () => {
-	queue[i++ % queue.length]();
-});
+document.body.append(overlay);
+
+setTimeout(() => {
+	highlight("nav", { opacity: 0.8, color: "#50e3c2" });
+	let i = 0;
+	document.querySelector("#fhRoot")?.addEventListener("click", () => {
+		queue[i++ % queue.length]();
+	});
+}, 100);
