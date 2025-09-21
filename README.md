@@ -69,14 +69,14 @@ registerOnHighlight((el: HTMLElement, offset: OffsetData) => {
 and add the following CSS styles
 
 ```CSS
-  .overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: white;
-    width: 500px;
-    z-index: 999;
-  }
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: white;
+  width: 500px;
+  z-index: 999;
+}
 ```
 
 ### CSS Variables
