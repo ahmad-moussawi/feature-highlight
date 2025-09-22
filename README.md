@@ -4,6 +4,8 @@ A lightweight TypeScript library for visually highlighting elements on web pages
 
 Checkout the [live demo](https://ahmad-moussawi.github.io/feature-highlight/)
 
+![Demo](./docs/demo.webp)
+
 ## ✨ Features
 
 - ⚡ **Zero dependencies** — Works out of the box
@@ -50,6 +52,8 @@ removeHighlight();
 ## Advanced Usage
 
 ### Overlay Text
+
+![Text overlay](./docs/text-overlay.png)
 
 Add text overlays using the `registerOnHighlight` callback:
 
